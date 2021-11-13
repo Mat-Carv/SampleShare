@@ -2,3 +2,7 @@
 <p>Dic</p>
 <%# # sign in link %>
 <a href="http://localhost:3000/users/sign_in">LOG THE FK IN BITCH</a>
+
+<% if user_signed_in? %>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+<% end %>
