@@ -1,0 +1,6 @@
+<p><%= current_user.id %></p>
+<p><%= current_user.first_name %></p>
+<p><%= current_user.last_name %></p>
+<p><%= current_user.nickname %></p>
+<p><%= current_user.email %></p>
+<%= link_to 'Edit Account', edit_user_registration_path, method: :get, class: "nav-link" %>

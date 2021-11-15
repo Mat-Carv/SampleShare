@@ -5,24 +5,32 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+        
+        <%# Home link %>
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <%= link_to 'Home', root_path, method: :get, class: "nav-link" %>
         </li>
-      
+        
+        <%# Dropdown Button if signed in. Log In link if user not signed in %>
         <% if user_signed_in?%>
+            <%# View My Packs (Owned and Purchased) Link %>
+            <li class="nav-item">
+                <%= link_to 'My Packs', my_packs_path, method: :get, class: "nav-link" %>
+            </li>
+            
             <%# Dropdown menu for accessing/editing/loggin out of user account %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 My Account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to 'Edit Account', edit_user_registration_path, method: :get, class: "nav-link" %>
+                <%= link_to 'Details', account_path, method: :get, class: "nav-link" %>
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
                 </div>
             </li>
 
         <% else %>
-        
+            <%# Log In link %>
             <li class="nav-item">
                 <%= link_to 'Log In', new_user_session_path, method: :get, class: "nav-link" %>
             </li>

@@ -1,0 +1,5 @@
+<% if user_signed_in?%>
+    <% @my_packs.each do |pack|%>
+    <p><%= pack.name %> <%= @category.find(pack.category_id).name %></p>
+    <% end %>
+<% end %>
