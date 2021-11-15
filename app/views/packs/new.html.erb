@@ -1,0 +1,7 @@
+<%= simple_form_for @pack do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.association :category %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+<% end %>
