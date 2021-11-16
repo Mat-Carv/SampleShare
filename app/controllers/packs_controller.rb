@@ -3,6 +3,8 @@ class PacksController < ApplicationController
     def index
         @my_packs = current_user.packs
         @category = Category.all
+        # @purchased = Purchase.where(user_id: current_user.id).packs
+        # @purchased = current_user.purchases
     end 
 
     def new
