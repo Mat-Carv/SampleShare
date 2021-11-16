@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/my_packs', to: 'packs#index'
   get '/packs/:id', to: 'packs#show'
 
+  get '/catalogue', to: 'catalogues#index'
+
   get '/account', to: 'account#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

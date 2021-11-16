@@ -14,6 +14,11 @@
         <%# Dropdown Button if signed in. Log In link if user not signed in %>
         <% if user_signed_in?%>
             <%# View My Packs (Owned and Purchased) Link %>
+            
+            <li class="nav-item">
+                <%= link_to 'Catalogue', catalogue_path, method: :get, class: "nav-link" %>
+            </li>
+            
             <li class="nav-item">
                 <%= link_to 'My Packs', packs_path, method: :get, class: "nav-link" %>
             </li>
