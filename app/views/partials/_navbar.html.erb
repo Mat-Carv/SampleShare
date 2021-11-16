@@ -15,7 +15,7 @@
         <% if user_signed_in?%>
             <%# View My Packs (Owned and Purchased) Link %>
             <li class="nav-item">
-                <%= link_to 'My Packs', my_packs_path, method: :get, class: "nav-link" %>
+                <%= link_to 'My Packs', packs_path, method: :get, class: "nav-link" %>
             </li>
             
             <%# Dropdown menu for accessing/editing/loggin out of user account %>

@@ -10,22 +10,10 @@ class PacksController < ApplicationController
         @category = Category.all
     end
 
-    # def create
-    #     @pack = Pack.new(params[:])
-    #     # @pack.user_id = current_user.id
-    #     @pack.category_id = @pack.category_id.to_i
-        
-    #     respond_to do |format|
-    #         if @pack.save
-    #             format.html { redirect_to @pack,  notice: 'Pack successfully created.' }
-    #             format.json { render :show, status: :created, location: @pack }
-    #         else
-    #             format.html { render :new }
-    #             format.json { render json: @pack.errors, status: :unprocessable_entity }
-    #         end
-    #     end
-
-    # end
+    def show
+        @pack = Pack.find(params[:id])
+        @category = Category.all
+    end
 
     def create
         @pack = Pack.new pack_params

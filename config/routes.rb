@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/new_pack', to: 'packs#new'
   post '/new_pack', to: 'packs#create'
   get '/my_packs', to: 'packs#index'
+  get '/packs/:id', to: 'packs#show'
 
   get '/account', to: 'account#index'
 
