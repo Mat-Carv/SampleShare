@@ -14,6 +14,7 @@ class PacksController < ApplicationController
 
     def show
         @pack = Pack.find(params[:id])
+        @params = params
         @category = Category.all
     end
 

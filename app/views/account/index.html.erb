@@ -1,4 +1,11 @@
-<p><%= current_user.id %></p>
-<p><%= current_user.username %></p>
-<p><%= current_user.email %></p>
-<%= link_to 'Edit Account', edit_user_registration_path, method: :get, class: "nav-link" %>
+
+<div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><%= current_user.username %></h5>
+            <h6 class="card-subtitle"><%= current_user.email %></h6><br>
+            <%= link_to 'Edit Account', edit_user_registration_path, method: :get, class:"btn btn-primary" %>
+        </div>
+    </div>
+</div>
