@@ -1,44 +1,50 @@
-<h2>My Packs</h2>
+<div class="container">
+    <h2>My Packs</h2>
 
-<%# Card listing for the current user's created packs %>
-<div class="row">
-   
-    <% @my_packs.each do |pack|%>
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= pack.name %></h5>
-                    <h6 class="card-subtitle"><%= @category.find(pack.category_id).name %></h6>
-                    <p class="card-text"><%= pack.description %></p>
-                    <%= link_to 'Details', pack_path(pack), method: :get, class:"btn btn-primary" %>
+    <%# Card listing for the current user's created packs %>
+    <div class="row">
+    
+        <% @my_packs.each do |pack|%>
+            <div class="col-md-3">
+                <%# class="card-img-top" alt="..." %>
+                <div class="card" style="width: 18rem;">
+                <%= image_tag(pack.image) if pack.image.attached?%>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= pack.name %></h5>
+                        <h6 class="card-subtitle"><%= @category.find(pack.category_id).name %></h6>
+                        <p class="card-text"><%= pack.description %></p>
+                        <%= link_to 'Details', pack_path(pack), method: :get, class:"btn btn-primary" %>
+                    </div>
                 </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
 
-</div><br>
+    </div><br>
+    <%= link_to 'Create New Sample Pack', new_pack_path, method: :get, class: "btn btn-primary" %>
+</div>
+<br>
+<div class="container">
 
-<%= link_to 'Create New Sample Pack', new_pack_path, method: :get, class: "btn btn-primary" %>
-
-<h2>Purchased Packs</h2>
-
-<%# Card listing for the current user's purchased packs %>
-<div class="row">
-        
-    <% @purchased.each do |purchase|%>
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= purchase.name %></h5>
-                    <h6 class="card-subtitle"><%= @category.find(purchase.category_id).name %></h6>
-                    <p class="card-text"><%= purchase.description %></p>
-                    <%# Button leads to packs#show %>
-                    <%= link_to 'Details', pack_path(purchase), method: :get, class:"btn btn-primary" %>
+    <h2>Purchased Packs</h2>
+    <br>
+    <%# Card listing for the current user's purchased packs %>
+    <div class="row">
+            
+        <% @purchased.each do |pack|%>
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                <%= image_tag(pack.image) if pack.image.attached?%>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= pack.name %></h5>
+                        <h6 class="card-subtitle"><%= @category.find(pack.category_id).name %></h6>
+                        <p class="card-text"><%= pack.description %></p>
+                        <%# Button leads to packs#show %>
+                        <%= link_to 'Details', pack_path(pack), method: :get, class:"btn btn-primary" %>
+                    </div>
                 </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
 
-</div><br>
+    </div><br>
+
+</div>
