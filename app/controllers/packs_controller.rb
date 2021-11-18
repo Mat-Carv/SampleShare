@@ -20,6 +20,23 @@ class PacksController < ApplicationController
         @category = Category.all
     end
 
+    def edit
+      @pack = Pack.find(params[:id])
+      @category = Category.all
+    end
+
+    def update
+      @pack = Pack.find(params[:id])
+        respond_to do |format|
+          if @pack.update(pack_params)
+            # upload_file
+            format.html { redirect_to my_packs_path }
+          else
+            format.html { render :edit }
+          end
+        end
+    end
+
     def create
         @pack = Pack.new pack_params
         @pack.user_id = current_user.id
@@ -36,7 +53,7 @@ class PacksController < ApplicationController
     private
 
     def pack_params
-        params.require(:pack).permit(:name, :description, :category_id, :price)
+        params.require(:pack).permit(:name, :description, :category_id, :price, :user_id)
     end
 
      

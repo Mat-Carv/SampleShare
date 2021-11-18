@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/new_pack', to: 'packs#create'
   get '/my_packs', to: 'packs#index'
   get '/packs/:id', to: 'packs#show'
+  get '/packs/:id/edit', to: 'packs#edit'
+  post '/packs/:id/edit', to: 'packs#update'
 
   get '/catalogue', to: 'catalogues#index'
 

@@ -7,7 +7,7 @@
             <h5 class="card-title"><%= @pack.name %></h5>
             <h6 class="card-subtitle"><%= @category.find(@pack.category_id).name %></h6>
             <p class="card-text"><%= @pack.description %></p>
-            <p class="card-text">Price $<%= @pack.price %></p>
+            
             <%= render "partials/purchase_or_edit_button"%>
         </div>
     </div>
