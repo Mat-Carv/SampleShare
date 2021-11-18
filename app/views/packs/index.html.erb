@@ -20,3 +20,21 @@
 <%= link_to 'Create New Sample Pack', new_pack_path, method: :get, class: "btn btn-primary" %>
 
 <h2>Purchased Packs</h2>
+
+<div class="row">
+        
+    <% @purchased.each do |purchase|%>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= purchase.pack.name %></h5>
+                    <h6 class="card-subtitle"><%= @category.find(purchase.pack.category_id).name %></h6>
+                    <p class="card-text"><%= purchase.pack.description %></p>
+                    <%= link_to 'Details', pack_path(purchase.pack), method: :get, class:"btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div><br>
