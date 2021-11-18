@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/packs/:id', to: 'packs#show'
   get '/packs/:id/edit', to: 'packs#edit'
   post '/packs/:id/edit', to: 'packs#update'
+  delete '/packs/:id', to: 'packs#delete', as: 'delete_pack'
 
   get '/catalogue', to: 'catalogues#index'
 

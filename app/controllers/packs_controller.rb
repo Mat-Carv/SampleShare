@@ -1,23 +1,35 @@
 class PacksController < ApplicationController
 
     def index
-        # packs created/owned by the current user
-        @my_packs = current_user.packs
+      # packs created/owned by the current user
+      @my_packs = current_user.packs
 
-        @category = Category.all
-        # packs purchased by the current user
-        @purchased = current_user.purchased_packs
+      @category = Category.all
+      # packs purchased by the current user
+      @purchased = current_user.purchased_packs
     end 
 
     def new
-        @pack = Pack.new
-        @category = Category.all
+      @pack = Pack.new
+      @category = Category.all
+    end
+
+    def create
+      @pack = Pack.new pack_params
+      @pack.user_id = current_user.id
+      respond_to do |format|
+        if @pack.save
+          format.html { redirect_to my_packs_path }
+        else
+          format.html { render :new }
+        end
+      end
     end
 
     def show
-        @pack = Pack.find(params[:id])
-        @params = params
-        @category = Category.all
+      @pack = Pack.find(params[:id])
+      @params = params
+      @category = Category.all
     end
 
     def edit
@@ -29,7 +41,6 @@ class PacksController < ApplicationController
       @pack = Pack.find(params[:id])
         respond_to do |format|
           if @pack.update(pack_params)
-            # upload_file
             format.html { redirect_to my_packs_path }
           else
             format.html { render :edit }
@@ -37,23 +48,17 @@ class PacksController < ApplicationController
         end
     end
 
-    def create
-        @pack = Pack.new pack_params
-        @pack.user_id = current_user.id
+    def destroy
+      Pack.find(params[:id]).destroy
         respond_to do |format|
-          if @pack.save
-            # upload_file
-            format.html { redirect_to my_packs_path }
-          else
-            format.html { render :new }
-          end
+          format.html { redirect_to packs_url }
         end
     end
 
     private
 
     def pack_params
-        params.require(:pack).permit(:name, :description, :category_id, :price, :user_id)
+      params.require(:pack).permit(:name, :description, :category_id, :price, :user_id)
     end
 
      

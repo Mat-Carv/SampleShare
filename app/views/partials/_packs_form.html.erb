@@ -5,3 +5,7 @@
   <%= f.input :price %>
   <%= f.button :submit, class:"btn btn-primary" %>
 <% end %>
+
+<% if current_user.packs.include? @pack %> 
+    <%= link_to 'Delete Pack', delete_pack_path, method: :delete, class:"btn btn-primary", data: { confirm: "Are you sure you want to remove the listing?"}  %>
+<% end %>
