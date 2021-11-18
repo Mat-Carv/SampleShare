@@ -9,6 +9,6 @@
 <%# Shows Purchase button if the displayed pack hasn't been created or purchased by the current user %>
 <% else %>
     <p class="card-text">Price $<%= @pack.price %></p>
-    <%= link_to 'Purchase', root_path, method: :get, class:"btn btn-primary" %>
+    <%= link_to 'Purchase', purchase_pack_path, method: :post, class:"btn btn-primary", data: { confirm: "Complete purchase?"} %>
 
 <% end %>
