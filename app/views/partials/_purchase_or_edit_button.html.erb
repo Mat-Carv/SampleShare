@@ -4,7 +4,7 @@
 
 <%# Shows Download button if the displayed pack has been purchased by the current user %>
 <% elsif current_user.purchased_packs.include? @pack %>
-    <%= link_to 'Download', root_path, method: :get, class:"btn btn-primary" %>
+    <%= link_to 'Download', download_pack_path, method: :patch, class:"btn btn-primary" %>
 
 <%# Shows Purchase button if the displayed pack hasn't been created or purchased by the current user %>
 <% else %>
