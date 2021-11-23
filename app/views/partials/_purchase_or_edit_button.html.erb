@@ -4,8 +4,9 @@
 
 <%# Shows Download button if the displayed pack has been purchased by the current user %>
 <% elsif current_user.purchased_packs.include? @pack %>
-    <%= link_to 'Download', download_pack_path, method: :patch, class:"btn btn-primary" %>
-
+    <a href="./test/storage/sample.zip" download class="btn btn-primary">Download</a>
+    <%# Download from AWS S3 not available as it is a paid service. However @pack.sample will give the ActiveStorage info from S# of the stored sample. %>
+    <p class="card-text">Sample key from AWS S3 <%= @pack.sample %></p>
 <%# Shows Purchase button if the displayed pack hasn't been created or purchased by the current user %>
 <% else %>
     <p class="card-text">Price $<%= @pack.price %></p>

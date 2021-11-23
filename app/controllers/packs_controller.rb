@@ -55,13 +55,10 @@ class PacksController < ApplicationController
         end
     end
 
-    def download
-      send_file Pack.find(pack_params[:id]).sample
-    end
-
     private
 
     def pack_params
+      puts params
       params.require(:pack).permit(:name, :description, :category_id, :price, :user_id, :available, :image, :sample)
     end
 

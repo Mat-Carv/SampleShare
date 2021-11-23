@@ -12,8 +12,6 @@ Rails.application.routes.draw do
   post '/packs/:id/edit', to: 'packs#update'
   delete '/packs/:id', to: 'packs#delete', as: 'delete_pack'
 
-  patch '/packs/:id', to: 'packs#download', as: 'download_pack'
-
   post 'packs/:id', to: 'purchases#create', as: 'purchase_pack'
 
   get '/catalogue', to: 'catalogues#index'
