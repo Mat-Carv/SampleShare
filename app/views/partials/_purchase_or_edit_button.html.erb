@@ -1,15 +1,15 @@
 <%# Shows Edit button if the displayed pack was created by the current user %>
 <% if current_user.packs.include? @pack %> 
-    <%= link_to 'Edit', edit_pack_path, method: :get, class:"btn btn-primary" %>
+    <%= link_to 'Edit', edit_pack_path, method: :get, class:"btn btn-dark" %>
 
 <%# Shows Download button if the displayed pack has been purchased by the current user %>
 <% elsif current_user.purchased_packs.include? @pack %>
-    <a href="./test/storage/sample.zip" download class="btn btn-primary">Download</a>
+    <a href="./test/storage/sample.zip" download class="btn btn-dark">Download</a>
     <%# Download from AWS S3 not available as it is a paid service. However @pack.sample will give the ActiveStorage info from S# of the stored sample. %>
     <p class="card-text">Sample key from AWS S3 <%= @pack.sample %></p>
 <%# Shows Purchase button if the displayed pack hasn't been created or purchased by the current user %>
 <% else %>
     <p class="card-text">Price $<%= @pack.price %></p>
-    <%= link_to 'Purchase', purchase_pack_path, method: :post, class:"btn btn-primary", data: { confirm: "Complete purchase?"} %>
+    <%= link_to 'Purchase', purchase_pack_path, method: :post, class:"btn btn-dark", data: { confirm: "Complete purchase?"} %>
 
 <% end %>

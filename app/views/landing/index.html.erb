@@ -1,13 +1,17 @@
+
 <div class="container">
-    <div class="col-md-12">
-        <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-left" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Welcome to Sample Share</h5>
-                <h6 class="card-subtitle">Share your Sound and Find Inspiration</h6><br>
+    <div class="jumbotron bg-dark text-light">
+        <div class="row">
+            <div class="col-md-4">
+                <%= image_tag "landing_card.jpg", alt: "MIDI Keyboard", class:"w-100" %>
+            </div>
+            <div class="col-md-8">
+                <h1 class="display-4">Welcome to Sample Share</h1>
+                <p class="lead">Share your Sound and Find Inspiration!</p>
+                <hr class="my-4">    
                 <% if !user_signed_in? %>
-                    <%= link_to 'Sign Up', new_user_registration_path, method: :get, class:"btn btn-primary" %>
-                <% end %>
+                    <%= link_to 'Sign Up', new_user_registration_path, method: :get, class:"btn btn-warning text-dark" %>
+                <% end %>     
             </div>
         </div>
     </div>

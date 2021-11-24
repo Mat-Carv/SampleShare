@@ -7,9 +7,9 @@
   <%= f.input :image, as: :file %>
   <%= f.input :sample, as: :file %>
   <%= f.input :available %>
-  <%= f.button :submit, class:"btn btn-primary" %>
+  <%= f.button :submit, class:"btn btn-dark" %>
 <% end %>
 
 <% if current_user.packs.include? @pack %> 
-    <%= link_to 'Delete Pack', delete_pack_path, method: :delete, class:"btn btn-primary", data: { confirm: "Are you sure you want to remove the listing?"}  %>
+    <%= link_to 'Delete Pack', delete_pack_path, method: :delete, class:"btn btn-danger", data: { confirm: "Are you sure you want to remove the listing?"}  %>
 <% end %>

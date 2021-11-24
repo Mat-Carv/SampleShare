@@ -5,13 +5,17 @@
         <% @packs.each do |pack|%>
             <% if pack[:available] == true %>
                 <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
-                    <%= image_tag(pack.image) if pack.image.attached?%>
+                    <div class="card bg-dark text-white mb-3" style="width: 100%;">
+                    <% if pack.image.attached? %>
+                        <%= image_tag(pack.image) %>
+                    <% else %>
+                        <%= image_tag "cover1.jpeg", alt: "Placeholder" %>                       
+                    <% end %>
                         <div class="card-body">
                             <h5 class="card-title"><%= pack.name %></h5>
                             <h6 class="card-subtitle"><%= @category.find(pack.category_id).name %></h6>
                             <p class="card-text"><%= pack.description %></p>
-                            <%= link_to 'Details', pack_path(pack), method: :get, class:"btn btn-primary" %>
+                            <%= link_to 'Details', pack_path(pack), method: :get, class:"btn btn-light" %>
                         </div>
                     </div>
                 </div>

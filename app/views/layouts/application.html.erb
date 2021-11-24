@@ -14,9 +14,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="h-auto">
     <%= render "partials/navbar"%>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="h-auto p-3 bg-warning text-dark flex-grow-1">
+      <p class="alert"><%= alert %></p>
+      
+        <%= yield %>
+      
+    </div>
   </body>
 </html>

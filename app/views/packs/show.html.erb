@@ -2,7 +2,13 @@
 
 <div class="col-md-4">
     <div class="card" style="width: 18rem;">
-    <%= image_tag(@pack.image) if @pack.image.attached?%>
+
+        <% if @pack.image.attached? %>
+            <%= image_tag(@pack.image)  %>
+        <% else %>
+            <%= image_tag "cover1.jpeg", alt: "Placeholder" %>                       
+        <% end %>
+
         <div class="card-body">
             <h5 class="card-title"><%= @pack.name %></h5>
             <h6 class="card-subtitle"><%= @category.find(@pack.category_id).name %></h6>
