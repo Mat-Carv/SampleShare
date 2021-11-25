@@ -17,7 +17,7 @@ categories.each{|category|
 100.times{User.create(Faker::Internet.user('username', 'email', 'password'))}
 
 User.all.each{|user|
-    user.packs.create([
+    user.packs.create!([
         name: Faker::Book.title , 
         description: Faker::Lorem.sentence(word_count: 6) , 
         price: Faker::Number.decimal(l_digits: 2) ,
