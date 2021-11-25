@@ -8,6 +8,12 @@
 
 require 'faker'
 
+categories = ['Hiphop', 'Drums', 'Percussion', 'Synth', 'Lofi', 'Vintage', 'Orchestral', 'Strings', 'Misc', 'Others']
+
+categories.each{|category|
+    Category.create([name: category])
+}
+
 100.times{User.create(Faker::Internet.user('username', 'email', 'password'))}
 
 User.all.each{|user|
@@ -17,10 +23,4 @@ User.all.each{|user|
         price: Faker::Number.decimal(l_digits: 2) ,
         category_id: Faker::Number.within(range: 1..8),
         available: true  ])
-}
-
-categories = ['Hiphop', 'Drums', 'Percussion', 'Synth', 'Lofi', 'Vintage', 'Orchestral', 'Strings', 'Misc', 'Others']
-
-categories.each{|category|
-    Category.create([name: category])
 }
