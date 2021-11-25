@@ -1,20 +1,23 @@
-<h1>Show Pack</h1>
 
-<div class="col-md-4">
-    <div class="card" style="width: 18rem;">
+<div class="container">
+    <h1>Show Pack</h1>
 
-        <% if @pack.image.attached? %>
-            <%= image_tag(@pack.image)  %>
-        <% else %>
-            <%= image_tag "cover1.jpeg", alt: "Placeholder" %>                       
-        <% end %>
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
 
-        <div class="card-body">
-            <h5 class="card-title"><%= @pack.name %></h5>
-            <h6 class="card-subtitle"><%= @category.find(@pack.category_id).name %></h6>
-            <p class="card-text"><%= @pack.description %></p>
-            
-            <%= render "partials/purchase_or_edit_button"%>
+            <% if @pack.image.attached? %>
+                <%= image_tag(@pack.image)  %>
+            <% else %>
+                <%= image_tag "cover1.jpeg", alt: "Placeholder" %>                       
+            <% end %>
+
+            <div class="card-body">
+                <h5 class="card-title"><%= @pack.name %></h5>
+                <h6 class="card-subtitle"><%= @category.find(@pack.category_id).name %></h6>
+                <p class="card-text"><%= @pack.description %></p>
+                
+                <%= render "partials/purchase_or_edit_button"%>
+            </div>
         </div>
     </div>
 </div>

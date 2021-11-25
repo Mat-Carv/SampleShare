@@ -18,3 +18,9 @@ User.all.each{|user|
         category_id: Faker::Number.within(range: 1..8),
         available: true  ])
 }
+
+categories = ['Hiphop', 'Drums', 'Percussion', 'Synth', 'Lofi', 'Vintage', 'Orchestral', 'Strings', 'Misc', 'Others']
+
+categories.each{|category|
+    Category.create([name: category])
+}

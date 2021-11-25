@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :packs
+  has_many :packs, dependent: :destroy
 
-  has_many :purchases
+  has_many :purchases, dependent: :destroy
   has_many :purchased_packs, through: :purchases, source: :pack
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

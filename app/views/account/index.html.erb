@@ -1,11 +1,19 @@
 
-<div class="col-md-4">
-    <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><%= current_user.username %></h5>
-            <h6 class="card-subtitle"><%= current_user.email %></h6><br>
-            <%= link_to 'Edit Account', edit_user_registration_path, method: :get, class:"btn btn-primary" %>
+
+<div class="container">
+    <div class="jumbotron bg-dark text-light">
+        <div class="row">
+            <div class="col-md-4">
+                <%= image_tag "landing_card.jpg", alt: "MIDI Keyboard", class:"w-100" %>
+            </div>
+            <div class="col-md-8">
+                <h1 class="display-4"><%= current_user.username %></h1>
+                <p class="lead">Email: <%= current_user.email %></p>
+                <hr class="my-4">    
+                
+                <%= link_to 'Change Password', edit_user_registration_path, method: :get, class:"btn btn-light text-dark" %>
+                     
+            </div>
         </div>
     </div>
 </div>
