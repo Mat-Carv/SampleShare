@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setting up Sample Share
 
-Things you may want to cover:
+This application was made with and requires:
 
-* Ruby version
+- Ruby 3.0.0p0
+- Rails 6.1.4.1
+- Postgresql
 
-* System dependencies
+Before running the application:
 
-* Configuration
+- Install Bundle
+```
+$ bundle install
+```
 
-* Database creation
+- Change Directory into the root folder of the app and Install all Gems:
+```
+$ bundle
+```
 
-* Database initialization
+- Crate the Database:
+```
+$ service postgresql start
+$ rails db:create
+$ rails db:migrate
+```
 
-* How to run the test suite
+- And if you desire to, auto populate the DB:
+```
+$ rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+To Run the application on localhost:3000,
 
-* Deployment instructions
+- Start up postgres if it isn't on already:
+```
+$ service postgresql start
+```
 
-* ...
+- Start the rails server:
+```
+$ rails s
+```
